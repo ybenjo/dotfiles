@@ -18,11 +18,13 @@
 (global-font-lock-mode t)
 (setq inhibit-startup-message t)
 (fset 'yes-or-no-p 'y-or-n-p)
+
 ;;; 対応する括弧に色付け
 (show-paren-mode t)
 (setq show-paren-style 'mixed)
 (set-face-background 'show-paren-match-face "red")
 (set-face-foreground 'show-paren-match-face "SkyBlue")
+
 ;;; C-hでbackspace、C-oで補間
 (define-key global-map "\C-H" 'backward-delete-char)
 (define-key global-map "\C-o" 'dabbrev-expand)
@@ -52,9 +54,8 @@
 (set-frame-parameter nil 'fullscreen 'fullboth))))
 
 ;;;突っ込んだelisp関連
-;;; ruby-mode
 (add-to-list 'load-path "~/.emacs.d/")
-(add-to-list 'load-path "~/.emacs.d/ess/lisp")
+;;; ruby-mode
 (autoload 'ruby-mode "ruby-mode" "Mode for editing ruby source files" t)
 (setq auto-mode-alist (cons '("\\.rb$" . ruby-mode) auto-mode-alist))
 (setq interpreter-mode-alist (append '(("ruby" . ruby-mode)) interpreter-mode-alist))
@@ -64,7 +65,6 @@
 ;;; ruby-electric.el --- electric editing commands for ruby files
 (require 'ruby-electric)
 (add-hook 'ruby-mode-hook '(lambda () (ruby-electric-mode t)))
-
 ;;; C-c C-c で選択範囲をコメントアウト
 (define-key ruby-mode-map "\C-c\C-c" 'comment-region)
 ;;; C-c C-u で選択範囲のコメントを解除
@@ -90,6 +90,7 @@
   ))
 
 ;;; ess
+(add-to-list 'load-path "~/.emacs.d/ess/lisp")
 (require 'ess-site)
 (setq ess-ask-for-ess-directory nil)
 (setq ess-pre-run-hook
@@ -165,3 +166,8 @@
 (add-to-list 'ac-dictionary-directories "/Users/y_benjo/.emacs.d/ac-dict")
 (ac-config-default)
 
+;;; anything.el
+(require 'anything-config)
+(global-set-key "\C-xv" 'anything)
+(setq recentf-max-saved-items 500)
+(recentf-mode 1)
