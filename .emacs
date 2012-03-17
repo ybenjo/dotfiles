@@ -171,3 +171,4 @@
 (global-set-key "\C-xv" 'anything)
 (setq recentf-max-saved-items 500)
 (recentf-mode 1)
+
