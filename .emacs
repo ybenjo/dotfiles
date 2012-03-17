@@ -29,6 +29,9 @@
 (define-key global-map "\C-H" 'backward-delete-char)
 (define-key global-map "\C-o" 'dabbrev-expand)
 
+;;;; C-z潰す
+(global-unset-key "\C-z")
+
 ;;; ウィンドウサイズ関連
  (setq default-frame-alist
        (append (list '(foreground-color . "azure3")
@@ -47,13 +50,10 @@
 	)
 	default-frame-alist))
 
-;;; carbon emacsでフルスクリーン
-(when (eq window-system 'mac)
-(add-hook 'window-setup-hook
-(lambda ()
-(set-frame-parameter nil 'fullscreen 'fullboth))))
+;;; fullscreen
+(run-with-idle-timer 0.1 nil 'ns-toggle-fullscreen)
 
-;;;突っ込んだelisp関連
+;;; elisp関連
 (add-to-list 'load-path "~/.emacs.d/")
 ;;; ruby-mode
 (autoload 'ruby-mode "ruby-mode" "Mode for editing ruby source files" t)
@@ -168,7 +168,10 @@
 
 ;;; anything.el
 (require 'anything-config)
-(global-set-key "\C-xv" 'anything)
+(global-set-key "\C-xv" 'anything-for-files)
 (setq recentf-max-saved-items 500)
 (recentf-mode 1)
 
+;;; multi-term.el
+(when (require 'multi-term nil t)
+  (setq multi-term-program "/opt/local/bin/zsh"))
