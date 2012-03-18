@@ -168,10 +168,15 @@
 
 ;;; anything.el
 (require 'anything-config)
-(global-set-key "\C-xv" 'anything-for-files)
+(global-set-key "\C-x\C-f" 'anything-for-files)
 (setq recentf-max-saved-items 500)
 (recentf-mode 1)
 
 ;;; multi-term.el
 (when (require 'multi-term nil t)
   (setq multi-term-program "/opt/local/bin/zsh"))
+
+;;; quickrun.el
+(require 'quickrun)
+;; よく使うならキーを割り当てるとよいでしょう
+(global-set-key "\C-x\C-v" 'quickrun)
