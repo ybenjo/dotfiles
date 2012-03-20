@@ -29,8 +29,12 @@
 (define-key global-map "\C-H" 'backward-delete-char)
 (define-key global-map "\C-o" 'dabbrev-expand)
 
-;;;; C-z潰す
+;;; C-z潰す
 (global-unset-key "\C-z")
+
+;;; バックスラッシュを入力
+(define-key global-map [?¥] [?\\])
+
 
 ;;; ウィンドウサイズ関連
  (setq default-frame-alist
@@ -178,5 +182,19 @@
 
 ;;; quickrun.el
 (require 'quickrun)
-;; よく使うならキーを割り当てるとよいでしょう
 (global-set-key "\C-x\C-v" 'quickrun)
+
+;;; tabbar.el
+;;; http://d.hatena.ne.jp/plasticster/20110825/1314271209
+(require 'tabbar)
+(tabbar-mode 1)
+(setq tabbar-buffer-groups-function nil)
+(dolist (btn '(tabbar-buffer-home-button
+               tabbar-scroll-left-button
+               tabbar-scroll-right-button))
+  (set btn (cons (cons "" nil)
+                 (cons "" nil))))
+(setq tabbar-separator '(1.5))
+
+(global-set-key "\C-zn" 'tabbar-forward-tab)
+(global-set-key "\C-zp" 'tabbar-backward-tab)
