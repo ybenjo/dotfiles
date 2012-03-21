@@ -186,15 +186,30 @@
 
 ;;; tabbar.el
 ;;; http://d.hatena.ne.jp/plasticster/20110825/1314271209
-(require 'tabbar)
-(tabbar-mode 1)
-(setq tabbar-buffer-groups-function nil)
-(dolist (btn '(tabbar-buffer-home-button
-               tabbar-scroll-left-button
-               tabbar-scroll-right-button))
-  (set btn (cons (cons "" nil)
-                 (cons "" nil))))
-(setq tabbar-separator '(1.5))
+; (require 'tabbar)
+; (tabbar-mode 1)
+; (setq tabbar-buffer-groups-function nil)
+; (dolist (btn '(tabbar-buffer-home-button
+;                tabbar-scroll-left-button
+;                tabbar-scroll-right-button))
+;   (set btn (cons (cons "" nil)
+;                  (cons "" nil))))
+; (setq tabbar-separator '(1.5))
+; (global-set-key "\C-zn" 'tabbar-forward-tab)
+; (global-set-key "\C-zp" 'tabbar-backward-tab)
 
-(global-set-key "\C-zn" 'tabbar-forward-tab)
-(global-set-key "\C-zp" 'tabbar-backward-tab)
+;;; org-mode
+(setq org-startup-truncated nil)
+(setq org-return-follows-link t)
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(org-remember-insinuate)
+(setq org-directory "~/workspace/orgs")
+(setq org-default-notes-file (concat org-directory "agenda.org"))
+(setq org-remember-templates
+      '(("Todo" ?t "** TODO %?\n   %i\n   %a\n   %t" nil "Inbox")
+        ("Bug" ?b "** TODO %?   :bug:\n   %i\n   %a\n   %t" nil "Inbox")
+        ("Idea" ?i "** %?\n   %i\n   %a\n   %t" nil "New Ideas")
+        ))
+
+;;; outline-mode
+(add-to-list 'auto-mode-alist '("\\.txt$" . outline-mode))
