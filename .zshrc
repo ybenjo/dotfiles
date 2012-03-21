@@ -188,6 +188,7 @@ alias e='emacs'
 alias g++='g++-mp-4.5'
 alias gcc='gcc-mp-4.5'
 alias irb='pry'
+alias grep='grep --color -n'
 
 # gtest
 # GTEST_COLOR=1
