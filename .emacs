@@ -172,7 +172,7 @@
 
 ;;; anything.el
 (require 'anything-config)
-(global-set-key "\C-x\C-f" 'anything-for-files)
+(global-set-key "\C-x\C-v" 'anything-for-files)
 (setq recentf-max-saved-items 500)
 (recentf-mode 1)
 
@@ -182,7 +182,7 @@
 
 ;;; quickrun.el
 (require 'quickrun)
-(global-set-key "\C-x\C-v" 'quickrun)
+(global-set-key "\C-x\C-a" 'quickrun)
 
 ;;; tabbar.el
 ;;; http://d.hatena.ne.jp/plasticster/20110825/1314271209
