@@ -236,3 +236,11 @@ zstyle ':chpwd:*' recent-dirs-max 5000
 zstyle ':chpwd:*' recent-dirs-default yes
 zstyle ':completion:*' recent-dirs-insert both
 
+# zaw-zsh
+# cd workspace && git clone https://github.com/nakamuray/zaw.git
+
+# zaw-src-zsh
+# http://d.hatena.ne.jp/shiba_yu36/20120130/1327937835
+source $HOME/workspace/dotfiles/zaw/zaw.zsh
+zstyle ':filter-select' case-insensitive yes
+bindkey '^n' zaw-cdr
