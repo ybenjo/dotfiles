@@ -243,4 +243,4 @@ zstyle ':completion:*' recent-dirs-insert both
 # http://d.hatena.ne.jp/shiba_yu36/20120130/1327937835
 source $HOME/workspace/dotfiles/zaw/zaw.zsh
 zstyle ':filter-select' case-insensitive yes
-bindkey '^n' zaw-cdr
+bindkey '^@' zaw-cdr
