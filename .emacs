@@ -66,7 +66,7 @@
 (autoload 'run-ruby "inf-ruby" "Run an inferior Ruby process")
 (autoload 'inf-ruby-keys "inf-ruby" "Set local key defs for inf-ruby in ruby-mode")
 (add-hook 'ruby-mode-hook '(lambda () (inf-ruby-keys)))
-;;; ruby-electric.el --- electric editing commands for ruby files
+;;; ruby-electric.el
 (require 'ruby-electric)
 (add-hook 'ruby-mode-hook '(lambda () (ruby-electric-mode t)))
 ;;; C-c C-c で選択範囲をコメントアウト
@@ -172,7 +172,7 @@
 
 ;;; anything.el
 (require 'anything-config)
-(global-set-key "\C-x\C-v" 'anything-for-files)
+(global-set-key "\C-x\C-f" 'anything-for-files)
 (setq recentf-max-saved-items 500)
 (recentf-mode 1)
 
