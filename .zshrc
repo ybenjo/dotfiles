@@ -200,10 +200,10 @@ fi
 # Aliases
 setopt aliases
 alias emacs='open -a /Applications/MacPorts/Emacs.app'
-alias l='gls -atlF --color=auto'
-alias ls='gls -atlF --color=auto'
-alias la='gls -aF --color=auto'
-alias lla='gls -laF --color=auto'
+alias l='gls -atlFh --color=auto'
+alias ls='gls -atlFh --color=auto'
+alias la='gls -aFh --color=auto'
+alias lla='gls -laFh --color=auto'
 alias ll='ls | head'
 alias x='exit'
 alias mv='mv -i'
