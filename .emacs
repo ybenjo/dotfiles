@@ -80,7 +80,7 @@
 ;;; yatex
 (setq auto-mode-alist(cons (cons "\\.tex$" 'yatex-mode) auto-mode-alist))
 (autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
-(setq load-path (cons "~/site-lisp/yatex" load-path))
+(setq load-path (cons "~/.emacs.d/yatex" load-path))
 (setq tex-command "/opt/local/bin/platex")
 (setq dviprint-command-format "/opt/local/bin/dvipdfmx %s")
 ;;; latexmkのために
