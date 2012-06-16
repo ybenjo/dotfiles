@@ -55,7 +55,7 @@
 	default-frame-alist))
 
 ;;; fullscreen
-(run-with-idle-timer 0.1 nil 'ns-toggle-fullscreen)
+;;; (run-with-idle-timer 0.1 nil 'ns-toggle-fullscreen)
 
 ;;; elisp関連
 (add-to-list 'load-path "~/.emacs.d/")

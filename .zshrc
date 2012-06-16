@@ -199,7 +199,7 @@ fi
 
 # Aliases
 setopt aliases
-alias emacs='open -a /Applications/MacPorts/Emacs.app'
+alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs -nw'
 alias l='gls -atlFh --color=auto'
 alias ls='gls -atlFh --color=auto'
 alias la='gls -aFh --color=auto'
