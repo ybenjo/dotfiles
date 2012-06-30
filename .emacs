@@ -7,6 +7,15 @@
 (set-locale-environment "utf-8")
 (setenv "LANG" "ja_JP.UTF-8")
 
+;;; elisp関連
+(add-to-list 'load-path "~/.emacs.d/")
+
+;;; package
+(require 'package)
+(add-to-list 'package-archives 
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
 ;;; みみっちい設定
 (tool-bar-mode -1)
 (menu-bar-mode -1)
@@ -35,7 +44,6 @@
 ;;; バックスラッシュを入力
 (define-key global-map [?¥] [?\\])
 
-
 ;;; ウィンドウサイズ関連
  (setq default-frame-alist
        (append (list '(foreground-color . "azure3")
@@ -49,16 +57,14 @@
 	'(height . 50)
 	'(top . 0)
 	'(left . 0)
-	'(alpha . (70 100 100 100))
-	'(alpha . (100 100 100 100))
+;;;	'(alpha . (70 100 100 100))
+;;;	'(alpha . (100 100 100 100))
 	)
 	default-frame-alist))
 
 ;;; fullscreen
 ;;; (run-with-idle-timer 0.1 nil 'ns-toggle-fullscreen)
 
-;;; elisp関連
-(add-to-list 'load-path "~/.emacs.d/")
 ;;; ruby-mode
 (autoload 'ruby-mode "ruby-mode" "Mode for editing ruby source files" t)
 (setq auto-mode-alist (cons '("\\.rb$" . ruby-mode) auto-mode-alist))
@@ -129,7 +135,7 @@
 ;;; linem
 (require 'linum)
 (global-linum-mode)
-(setq linum-format "%3d")
+(setq linum-format "%3d| ")
 
 ;;; go-lang
 (require 'go-mode-load)
@@ -139,12 +145,6 @@
 (require 'clojure-mode)
 (defun turn-on-paredit () (paredit-mode 1))
 (add-hook 'clojure-mode-hook 'turn-on-paredit)
-
-;;; package
-(require 'package)
-(add-to-list 'package-archives 
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
 
 ;;; フォント設定
 ; http://d.hatena.ne.jp/ground256/20101225/1293278087
@@ -353,3 +353,7 @@ static char * arrow_right[] = {
 (set-face-attribute 'mode-line-inactive nil
                     :foreground "#fff"
                     :background "#000")
+
+
+(require 'color-theme)
+(color-theme-comidia)
