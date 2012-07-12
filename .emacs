@@ -354,6 +354,3 @@ static char * arrow_right[] = {
                     :foreground "#fff"
                     :background "#000")
 
-
-(require 'color-theme)
-(color-theme-comidia)
