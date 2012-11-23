@@ -17,9 +17,10 @@
 (package-initialize)
 
 ;;; みみっちい設定
-(tool-bar-mode -1)
+; (tool-bar-mode -1)
 (menu-bar-mode -1)
-(toggle-scroll-bar nil)
+; (toggle-scroll-bar nil)
+(setq image-load-path "")
 (setq transient-mark-mode t)
 (setq w32-hide-mouse-on-key t)
 (setq make-backup-files nil)

@@ -200,7 +200,8 @@ fi
 
 # Aliases
 setopt aliases
-alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs -nw'
+# alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs -nw'
+alias emacs='/opt/local/bin/emacs-24.2'
 alias l='gls -atlFh --color=auto'
 alias ls='gls -atlFh --color=auto'
 alias la='gls -aFh --color=auto'
