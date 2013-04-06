@@ -2,7 +2,7 @@
 # mickey24
 export LANG=ja_JP.UTF-8
 
-export PATH=/opt/local/bin:/usr/local/bin:/opt/local/sbin:/usr/X11R6/bin:/usr/bin:/bin:/opt:local/sbin:/usr/sbin:/sbin:$HOME/go/bin
+export PATH=/opt/local/bin:/usr/local/bin:/opt/local/sbin:/usr/X11R6/bin:/usr/bin:/bin:/opt:local/sbin:/usr/sbin:/sbin:$HOME/go/bin:$PATH
 export MANPATH=/opt/local/man:$MANPATH
 
 export EDITOR='emacs'
@@ -200,8 +200,7 @@ fi
 
 # Aliases
 setopt aliases
-# alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs -nw'
-alias emacs='/opt/local/bin/emacs-24.2'
+alias emacs='/opt/local/bin/emacs'
 alias l='gls -atlFh --color=auto'
 alias ls='gls -atlFh --color=auto'
 alias la='gls -aFh --color=auto'

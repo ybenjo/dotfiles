@@ -29,3 +29,5 @@ options(X11fonts = c("-alias-gothic-%s-%s-*-*-%d-*-*-*-*-*-*-*",
 setHook(packageEvent("grDevices", "onLoad"),
         function(...) grDevices::pdf.options(family="Japan1GothicBBB")
 )
+
+options(repos="http://cran.ism.ac.jp/")

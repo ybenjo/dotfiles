@@ -74,8 +74,17 @@
 (autoload 'inf-ruby-keys "inf-ruby" "Set local key defs for inf-ruby in ruby-mode")
 (add-hook 'ruby-mode-hook '(lambda () (inf-ruby-keys)))
 ;;; ruby-electric.el
-(require 'ruby-electric)
-(add-hook 'ruby-mode-hook '(lambda () (ruby-electric-mode t)))
+;;; error in emacs24
+; (require 'ruby-electric)
+; (add-hook 'ruby-mode-hook '(lambda () (ruby-electric-mode t)))
+(require 'ruby-end)
+(add-hook 'ruby-mode-hook
+  '(lambda ()
+    (abbrev-mode 1)
+    (electric-pair-mode t)
+    (electric-indent-mode t)
+    (electric-layout-mode t)))
+
 ;;; C-c C-c で選択範囲をコメントアウト
 (define-key ruby-mode-map "\C-c\C-c" 'comment-region)
 ;;; C-c C-u で選択範囲のコメントを解除
@@ -200,17 +209,17 @@
 ; (global-set-key "\C-zp" 'tabbar-backward-tab)
 
 ;;; org-mode
-(setq org-startup-truncated nil)
-(setq org-return-follows-link t)
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(org-remember-insinuate)
-(setq org-directory "~/workspace/orgs")
-(setq org-default-notes-file (concat org-directory "agenda.org"))
-(setq org-remember-templates
-      '(("Todo" ?t "** TODO %?\n   %i\n   %a\n   %t" nil "Inbox")
-        ("Bug" ?b "** TODO %?   :bug:\n   %i\n   %a\n   %t" nil "Inbox")
-        ("Idea" ?i "** %?\n   %i\n   %a\n   %t" nil "New Ideas")
-        ))
+; (setq org-startup-truncated nil)
+; (setq org-return-follows-link t)
+; (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+; (org-remember-insinuate)
+; (setq org-directory "~/workspace/orgs")
+; (setq org-default-notes-file (concat org-directory "agenda.org"))
+; (setq org-remember-templates
+;       '(("Todo" ?t "** TODO %?\n   %i\n   %a\n   %t" nil "Inbox")
+;         ("Bug" ?b "** TODO %?   :bug:\n   %i\n   %a\n   %t" nil "Inbox")
+;         ("Idea" ?i "** %?\n   %i\n   %a\n   %t" nil "New Ideas")
+;         ))
 
 ;;; outline-mode
 (add-to-list 'auto-mode-alist '("\\.txt$" . outline-mode))
@@ -260,11 +269,19 @@
       (setq count (1- count)))))
 
 ;;; rsense
-(setq rsense-home "/Users/y_benjo/workspace/dotfiles/rsense-0.3")
-(add-to-list 'load-path (concat rsense-home "/etc"))
-(require 'rsense)
-(add-hook 'ruby-mode-hook
-          (lambda ()
-            (add-to-list 'ac-sources 'ac-source-rsense-method)
-            (add-to-list 'ac-sources 'ac-source-rsense-constant)))
+;(setq rsense-home "/Users/y_benjo/workspace/dotfiles/rsense-0.3")
+;(add-to-list 'load-path (concat rsense-home "/etc"))
+;(require 'rsense)
+;(add-hook 'ruby-mode-hook
+;          (lambda ()
+;            (add-to-list 'ac-sources 'ac-source-rsense-method)
+;            (add-to-list 'ac-sources 'ac-source-rsense-constant)))
 
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+
+(global-auto-revert-mode 1)
+(setq completion-ignore-case t)
+
+(require 'install-elisp)
+(setq install-elisp-repository-directory "~/.emacs.d/")
