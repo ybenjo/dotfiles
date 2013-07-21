@@ -12,8 +12,8 @@
 
 ;;; package
 (require 'package)
-(add-to-list 'package-archives 
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
 ;;; みみっちい設定
@@ -75,15 +75,15 @@
 (add-hook 'ruby-mode-hook '(lambda () (inf-ruby-keys)))
 ;;; ruby-electric.el
 ;;; error in emacs24
-; (require 'ruby-electric)
-; (add-hook 'ruby-mode-hook '(lambda () (ruby-electric-mode t)))
-(require 'ruby-end)
-(add-hook 'ruby-mode-hook
-  '(lambda ()
-    (abbrev-mode 1)
-    (electric-pair-mode t)
-    (electric-indent-mode t)
-    (electric-layout-mode t)))
+ (require 'ruby-electric)
+ (add-hook 'ruby-mode-hook '(lambda () (ruby-electric-mode t)))
+;(require 'ruby-end)
+;(add-hook 'ruby-mode-hook
+;  '(lambda ()
+;    (abbrev-mode 1)
+;    (electric-pair-mode t)
+;    (electric-indent-mode t)
+;    (electric-layout-mode t)))
 
 ;;; C-c C-c で選択範囲をコメントアウト
 (define-key ruby-mode-map "\C-c\C-c" 'comment-region)
