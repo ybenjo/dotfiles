@@ -2,11 +2,11 @@
 # mickey24
 export LANG=ja_JP.UTF-8
 
-export PATH=/opt/local/bin:/usr/local/bin:/opt/local/sbin:/usr/X11R6/bin:/usr/bin:/bin:/opt:local/sbin:/usr/sbin:/sbin:$HOME/go/bin:$PATH
+export PATH=/opt/local/bin:/usr/local/bin:/opt/local/sbin:/usr/X11R6/bin:/usr/bin:/bin:/opt:local/sbin:/usr/sbin:/sbin:$HOME/go/bin:$HOME/local/bin:$PATH
 export MANPATH=/opt/local/man:$MANPATH
 
 export EDITOR='emacs'
-export CPATH=$CPATH:$HOME/usr/local/bin/include:$HOME/local/include
+export CPATH=$CPATH:$HOME/usr/local/bin/include:$HOME/local/include:$/opt/local/include
 export CC=gcc-mp-4.7
 export CXX=g++-mp-4.7
 

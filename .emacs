@@ -285,3 +285,6 @@
 
 (require 'install-elisp)
 (setq install-elisp-repository-directory "~/.emacs.d/")
+
+; anzu-mode
+(global-anzu-mode +1)
