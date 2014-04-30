@@ -45,24 +45,6 @@
 ;;; バックスラッシュを入力
 (define-key global-map [?¥] [?\\])
 
-;;; ウィンドウサイズ関連
- (setq default-frame-alist
-       (append (list '(foreground-color . "azure3")
- 	'(background-color . "black")
- 	'(border-color . "black")
- 	'(mouse-color . "white")
-	'(cursor-color . "white")
-	'(width . 155)
-	'(height . 59)
-	'(width . 90)
-	'(height . 50)
-	'(top . 0)
-	'(left . 0)
-;;;	'(alpha . (70 100 100 100))
-;;;	'(alpha . (100 100 100 100))
-	)
-	default-frame-alist))
-
 ;;; fullscreen
 ;;; (run-with-idle-timer 0.1 nil 'ns-toggle-fullscreen)
 
@@ -156,20 +138,6 @@
 (defun turn-on-paredit () (paredit-mode 1))
 (add-hook 'clojure-mode-hook 'turn-on-paredit)
 
-;;; フォント設定
-; http://d.hatena.ne.jp/ground256/20101225/1293278087
-(when (eq system-type 'darwin)
-  (if (>= emacs-major-version 23)
-      (cond (window-system
-	     (create-fontset-from-ascii-font "Menlo-18:weight=normal:slant=normal" nil "menlomarugo")
-	     (set-fontset-font "fontset-menlomarugo"
-			       'unicode
-			       (font-spec :family "Hiragino Maru Gothic ProN" :size 18)
-			       nil
-			       'append)
-	     (add-to-list 'default-frame-alist '(font . "fontset-menlomarugo"))
-	     ))))
-
 ;; Command-Key and Option-Key
 (setq ns-command-modifier (quote meta))
 (setq ns-alternate-modifier (quote super))
@@ -186,40 +154,9 @@
 (setq recentf-max-saved-items 500)
 (recentf-mode 1)
 
-;;; multi-term.el
-(when (require 'multi-term nil t)
-  (setq multi-term-program "/opt/local/bin/zsh"))
-
 ;;; quickrun.el
 (require 'quickrun)
 (global-set-key "\C-x\C-a" 'quickrun)
-
-;;; tabbar.el
-;;; http://d.hatena.ne.jp/plasticster/20110825/1314271209
-; (require 'tabbar)
-; (tabbar-mode 1)
-; (setq tabbar-buffer-groups-function nil)
-; (dolist (btn '(tabbar-buffer-home-button
-;                tabbar-scroll-left-button
-;                tabbar-scroll-right-button))
-;   (set btn (cons (cons "" nil)
-;                  (cons "" nil))))
-; (setq tabbar-separator '(1.5))
-; (global-set-key "\C-zn" 'tabbar-forward-tab)
-; (global-set-key "\C-zp" 'tabbar-backward-tab)
-
-;;; org-mode
-; (setq org-startup-truncated nil)
-; (setq org-return-follows-link t)
-; (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-; (org-remember-insinuate)
-; (setq org-directory "~/workspace/orgs")
-; (setq org-default-notes-file (concat org-directory "agenda.org"))
-; (setq org-remember-templates
-;       '(("Todo" ?t "** TODO %?\n   %i\n   %a\n   %t" nil "Inbox")
-;         ("Bug" ?b "** TODO %?   :bug:\n   %i\n   %a\n   %t" nil "Inbox")
-;         ("Idea" ?i "** %?\n   %i\n   %a\n   %t" nil "New Ideas")
-;         ))
 
 ;;; outline-mode
 (add-to-list 'auto-mode-alist '("\\.txt$" . outline-mode))

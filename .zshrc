@@ -245,3 +245,6 @@ zstyle ':completion:*' recent-dirs-insert both
 source $HOME/workspace/dotfiles/zaw/zaw.zsh
 zstyle ':filter-select' case-insensitive yes
 bindkey '^@' zaw-cdr
+
+# notify
+REPORTTIME=1
