@@ -7,8 +7,8 @@ export MANPATH=/opt/local/man:$MANPATH
 
 export EDITOR='emacs'
 export CPATH=$CPATH:$HOME/usr/local/bin/include:$HOME/local/include:$/opt/local/include
-export CC=gcc-mp-4.7
-export CXX=g++-mp-4.7
+# export CC=gcc-mp-4.7
+# export CXX=g++-mp-4.7
 
 export LIBRARY_PATH=/opt/local/lib:$LIBRARY_PATH
 export LD_LIBRARY_PATH=/opt/local/lib:$LD_LIBRARY_PATH
@@ -217,8 +217,6 @@ alias r='R'
 alias S='screen -R'
 alias less='lv'
 alias e='emacs'
-alias g++='g++-mp-4.7'
-alias gcc='gcc-mp-4.7'
 alias irb='pry'
 alias grep='grep --color -n'
 
